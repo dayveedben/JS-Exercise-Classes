@@ -144,7 +144,9 @@ class Instructor extends Lambdasian{
     super(attributes)
     this.specialty = attributes.specialty;
     this.favLanguage = attributes.favLanguage;
-    this.catchPhrase = attributes.catchPhrase
+    this.catchPhrase = attributes.catchPhrase;
+    this.student = attributes.student;
+    this.subject =attributes.subject
   }
   demo(){
       return `Today we are learning about ${this.favLanguage}`;
@@ -177,10 +179,27 @@ class Instructor extends Lambdasian{
 */
 class Student extends Lambdasian{
     constructor (attributes){
+      super(attributes)
+      this.previousBackground = attributes.previousBackground;
       this.className = attributes.className;
-    }
+      this.favSubjects = attributes.favSubjects;
+      this.studentName = attributes.studentName;
+      this.subject = attributes.subject
+    };
+    listSubjects(){
+        return `Loving ${this.favSubjects}`
+    };
+    PRAssignment(studentname){
+      return `${this.studentName} has begun sprint challenge on ${this.subject}`
+     }
+     sprintChallenge(){
+        return `${this.studentName} has begun sprint challenge on ${this.subject}`
+     };
 
-}
+    
+};
+    
+
 
 /*
   TASK 6
@@ -195,7 +214,20 @@ class Student extends Lambdasian{
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
+class ProjectManager extends Instructor {
+  constructor(attributes){
+    super(attributes)
+    this.gradClassName = attributes.gradClassName;
+    this.favInstructor = attributes.favInstructor;
+    this.studentName = attributes.studentName;
+    this.channel = attributes.channel
+  };
+  standUp(){
+    return `${this.name} announces to ${this.channel}, @channel standy times!`
+  };
+  debugsCode(){
+    return `${this.name} debugs ${this.studentName}'s code on ${this.subject}`
+  }
 
 }
 
